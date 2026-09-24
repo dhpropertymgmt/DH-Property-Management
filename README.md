@@ -31,13 +31,13 @@ cp .env.example .env.local   # fill in your Supabase URL and publishable (anon) 
 npm run dev
 ```
 
-The marketing site runs without `.env.local`. Without it, the forms and portal show a "not connected" message.
+The marketing site runs without `.env.local`. Without it, the forms and portal show a "not connected" message. `npm run build` reads `.env.production`, which points at the DH Property Management Supabase project (`tnohtkfgaaabiddukaoc`). Both values in it are public.
 
 `npm run build` runs the typecheck and produces `dist/`.
 
 ## Supabase setup
 
-1. **Apply the schema.** Run `supabase/migrations/20260924000000_core_schema.sql` in the SQL editor, or with the CLI: `supabase link --project-ref <ref>` then `supabase db push`.
+1. **Apply the schema.** Already done on the DH Property Management project (both files in `supabase/migrations/`). For a new project, run them in order in the SQL editor, or with the CLI: `supabase link --project-ref <ref>` then `supabase db push`.
 2. **Demo data (optional, never in production).** `supabase/seed.sql` loads the fictional Kettle Ridge portfolio from the sample reports. Its owner is `owner.demo@example.com` and one tenant is `tenant.demo@example.com`. Change those to addresses you control if you want to sign in as them.
 3. **Auth settings** (Authentication → URL Configuration): set the Site URL to where the site is hosted, and add `https://<your-domain>/portal/**` (plus `http://localhost:5173/portal/**` for development) to the redirect URLs. The email provider needs to be enabled; the portal uses one-time sign-in links.
 4. **Make yourself staff.** Sign in once at `/portal`, then run in the SQL editor:
@@ -53,7 +53,7 @@ The marketing site runs without `.env.local`. Without it, the forms and portal s
 - Tenants can read their own leases, units and receipts, and see their work orders through `my_work_orders()`, which leaves out bids, costs, vendors and owner notes. They can file requests only for units on a current lease, through `submit_maintenance_request()`.
 - Anonymous visitors can submit quote requests and applications but can't read them back. They see listings only through `public_listings()`.
 
-These rules were tested against a local Postgres 16 database with a stubbed `auth` schema. The migration has not yet been applied to a live Supabase project.
+These rules were tested against a local Postgres 16 database with a stubbed `auth` schema, then applied to the live project and spot-checked there as the `anon` role.
 
 ## Before going live
 
