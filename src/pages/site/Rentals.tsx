@@ -1,3 +1,4 @@
+import { withBase } from "../../lib/base";
 import { useState, type FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Field, FormMessage, formValues, numOrNull, orNull } from "../../components/Forms";
@@ -44,7 +45,7 @@ export default function Rentals() {
             <h1 style={{ fontSize: "clamp(2.1rem,5.2vw,3.3rem)" }}>Homes we're leasing right now</h1>
             <p className="lede">
               Every applicant is screened against the same published standards. Read them on the{" "}
-              <a href="/tenants#apply" style={{ color: "var(--amber)" }}>tenant page</a> before you apply.
+              <a href={withBase("/tenants#apply")} style={{ color: "var(--amber)" }}>tenant page</a> before you apply.
             </p>
           </div>
         </div>
@@ -84,7 +85,7 @@ export default function Rentals() {
                 {l.description && <p style={{ fontSize: ".95rem" }}>{l.description}</p>}
                 <a
                   className="btn btn-primary"
-                  href={`/rentals?unit=${l.unit_id}#apply`}
+                  href={withBase(`/rentals?unit=${l.unit_id}#apply`)}
                   onClick={(e) => {
                     e.preventDefault();
                     setParams({ unit: l.unit_id });

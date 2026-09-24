@@ -1,3 +1,4 @@
+import { withBase } from "../../lib/base";
 import { NavLink, Outlet } from "react-router-dom";
 import { BrandMark } from "../../components/Brand";
 import { useAuth } from "../../lib/auth";
@@ -38,7 +39,7 @@ function Shell({ children, nav }: { children: React.ReactNode; nav?: { to: strin
     <div className="app">
       <div className="app-top">
         <div className="wrap app-top-in">
-          <a className="brand" href="/">
+          <a className="brand" href={withBase("/")}>
             <BrandMark />
             DH<span className="bn-rest"> Property Management</span>
           </a>

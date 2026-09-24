@@ -1,3 +1,4 @@
+import { withBase } from "../../lib/base";
 import { useState, type FormEvent } from "react";
 import { BrandMark } from "../../components/Brand";
 import { Field, FormMessage } from "../../components/Forms";
@@ -28,7 +29,7 @@ export default function Login() {
   return (
     <div className="app login">
       <div className="login-box">
-        <a className="brand" href="/">
+        <a className="brand" href={withBase("/")}>
           <BrandMark />
           {SITE.name}
         </a>

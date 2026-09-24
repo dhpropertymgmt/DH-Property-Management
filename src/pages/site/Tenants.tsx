@@ -1,3 +1,4 @@
+import { withBase } from "../../lib/base";
 import { SITE } from "../../lib/site";
 import { usePageTitle } from "../../lib/usePageTitle";
 
@@ -13,9 +14,9 @@ export default function Tenants() {
             <h1 style={{ fontSize: "clamp(2.1rem,5.2vw,3.3rem)" }}>Pay rent, report a problem, get an answer</h1>
             <p className="lede">Everything you need is on this page. If it isn't here, call and a person picks up.</p>
             <div className="btn-row">
-              <a className="btn btn-primary" href="/portal">Tenant log in</a>
+              <a className="btn btn-primary" href={withBase("/portal")}>Tenant log in</a>
               <a className="btn btn-ghost-dark" href="#pay">How to pay rent</a>
-              <a className="btn btn-ghost-dark" href="/portal/maintenance">Report maintenance</a>
+              <a className="btn btn-ghost-dark" href={withBase("/portal/maintenance")}>Report maintenance</a>
             </div>
           </div>
         </div>
@@ -89,7 +90,7 @@ export default function Tenants() {
           </div>
           <p style={{ marginTop: "22px", fontSize: ".93rem" }}>You'll always get notice before anyone enters, except in a genuine emergency. If a repair is needed because of damage beyond normal wear, we'll tell you in writing before the work is scheduled, not after.</p>
           <div className="btn-row" style={{ marginTop: "22px" }}>
-            <a className="btn btn-primary" href="/portal/maintenance">Submit a request in the tenant portal</a>
+            <a className="btn btn-primary" href={withBase("/portal/maintenance")}>Submit a request in the tenant portal</a>
           </div>
         </div>
       </section>
@@ -133,8 +134,8 @@ export default function Tenants() {
             </ul>
           </div>
           <div className="btn-row" style={{ marginTop: "28px" }}>
-            <a className="btn btn-primary" href="/rentals">See available rentals</a>
-            <a className="btn btn-ghost" href="/rentals#apply">Start an application</a>
+            <a className="btn btn-primary" href={withBase("/rentals")}>See available rentals</a>
+            <a className="btn btn-ghost" href={withBase("/rentals#apply")}>Start an application</a>
           </div>
         </div>
       </section>
@@ -204,7 +205,7 @@ export default function Tenants() {
           <p>Non-urgent requests through the portal get a same-business-day answer. If you'd rather talk to a person, call.</p>
           <div className="btn-row">
             <a className="btn btn-ghost" href={SITE.phoneHref}>{SITE.phone}</a>
-            <a className="btn btn-ghost" href="/portal/maintenance">Report maintenance</a>
+            <a className="btn btn-ghost" href={withBase("/portal/maintenance")}>Report maintenance</a>
           </div>
         </div>
       </section>

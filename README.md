@@ -23,6 +23,15 @@ Statements and tax summaries are calculated from the `transactions` ledger. The 
 - Supabase: Postgres with row level security, passwordless email sign-in
 - A static build (`dist/`) that runs on any static host. `vercel.json` and `public/_redirects` send every route to `index.html`.
 
+## Deployment
+
+`.github/workflows/deploy-pages.yml` builds the site and publishes it to GitHub Pages on every push to `claude/upbeat-curie-v1kvq0` or `main`: https://dhpropertymgmt.github.io/DH-Property-Management/
+
+- It builds with `BASE_PATH=/DH-Property-Management/`, because project pages are served from a sub-path. All internal links go through `withBase()` in `src/lib/base.ts`.
+- It copies `index.html` to `404.html` so that links like `/portal` load the app.
+- One-time setup: in the repo settings under Pages, set the source to **GitHub Actions**.
+- If you move to a custom domain, drop `BASE_PATH` (or set it to `/`).
+
 ## Local development
 
 ```bash

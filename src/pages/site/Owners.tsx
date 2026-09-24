@@ -1,3 +1,4 @@
+import { withBase } from "../../lib/base";
 import QuoteForm from "../../components/QuoteForm";
 import { usePageTitle } from "../../lib/usePageTitle";
 
@@ -15,7 +16,7 @@ export default function Owners() {
             <div className="btn-row">
               <a className="btn btn-primary" href="#quote">Get a quote</a>
               <a className="btn btn-ghost-dark" href="#portal">See the owner portal</a>
-              <a className="btn btn-ghost-dark" href="/portal">Owner log in</a>
+              <a className="btn btn-ghost-dark" href={withBase("/portal")}>Owner log in</a>
             </div>
           </div>
         </div>

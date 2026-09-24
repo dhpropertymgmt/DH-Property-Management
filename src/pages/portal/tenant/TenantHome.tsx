@@ -1,3 +1,4 @@
+import { withBase } from "../../../lib/base";
 import { Loading, WorkOrderTag } from "../../../components/Status";
 import { fullDate, money, shortDate } from "../../../lib/format";
 import { SITE } from "../../../lib/site";
@@ -23,7 +24,7 @@ export default function TenantHome() {
           <p className="sub">Rent is due on the 1st. Questions? Call {SITE.phone}, weekdays 8 to 5.</p>
         </div>
         <div className="controls">
-          <a className="btn btn-primary btn-sm" href="/portal/maintenance">
+          <a className="btn btn-primary btn-sm" href={withBase("/portal/maintenance")}>
             Report maintenance
           </a>
         </div>

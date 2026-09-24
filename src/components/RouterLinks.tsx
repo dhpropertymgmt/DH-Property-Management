@@ -1,3 +1,4 @@
+import { stripBase } from "../lib/base";
 import { useEffect, type MouseEvent, type ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -12,7 +13,7 @@ export function RouterLinks({ children }: { children: ReactNode }) {
     const href = a.getAttribute("href");
     if (!href || !href.startsWith("/") || href.startsWith("//")) return;
     e.preventDefault();
-    navigate(href);
+    navigate(stripBase(href));
   };
   return <div onClick={onClick}>{children}</div>;
 }

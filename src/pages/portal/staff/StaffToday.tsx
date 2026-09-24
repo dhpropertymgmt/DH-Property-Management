@@ -1,3 +1,4 @@
+import { withBase } from "../../../lib/base";
 import { WO_SELECT, woPlace, type WorkOrderRow } from "../../../components/Approvals";
 import { Loading, WorkOrderTag } from "../../../components/Status";
 import { fullDate, money, shortDate, todayISO } from "../../../lib/format";
@@ -73,7 +74,7 @@ export default function StaffToday() {
             <div>
               <span>New quote requests</span>
               <b>{d.quotes.length}</b>
-              <small><a href="/portal/requests">Open leads</a></small>
+              <small><a href={withBase("/portal/requests")}>Open leads</a></small>
             </div>
             <div>
               <span>New applications</span>
@@ -94,7 +95,7 @@ export default function StaffToday() {
           {d.unlinked > 0 && (
             <p className="notice">
               {d.unlinked} signed-in {d.unlinked === 1 ? "account isn't" : "accounts aren't"} linked to an owner or tenant.{" "}
-              <a href="/portal/accounts">Review accounts</a>
+              <a href={withBase("/portal/accounts")}>Review accounts</a>
             </p>
           )}
 

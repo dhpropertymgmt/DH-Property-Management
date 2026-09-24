@@ -1,3 +1,4 @@
+import { withBase } from "../../lib/base";
 import QuoteForm from "../../components/QuoteForm";
 import { usePageTitle } from "../../lib/usePageTitle";
 
@@ -235,8 +236,8 @@ export default function Home() {
             </div>
           </div>
           <div className="btn-row" style={{ marginTop: "34px" }}>
-            <a className="btn btn-primary" href="/owners">See the full owner walkthrough</a>
-            <a className="btn btn-ghost-dark" href="/sample-reports">See sample owner reports</a>
+            <a className="btn btn-primary" href={withBase("/owners")}>See the full owner walkthrough</a>
+            <a className="btn btn-ghost-dark" href={withBase("/sample-reports")}>See sample owner reports</a>
           </div>
         </div>
       </section>
