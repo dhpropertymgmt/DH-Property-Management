@@ -1,4 +1,4 @@
-import { SITE } from "../../lib/site";
+import QuoteForm from "../../components/QuoteForm";
 import { usePageTitle } from "../../lib/usePageTitle";
 
 export default function Home() {
@@ -236,6 +236,7 @@ export default function Home() {
           </div>
           <div className="btn-row" style={{ marginTop: "34px" }}>
             <a className="btn btn-primary" href="/owners">See the full owner walkthrough</a>
+            <a className="btn btn-ghost-dark" href="/sample-reports">See sample owner reports</a>
           </div>
         </div>
       </section>
@@ -292,10 +293,7 @@ export default function Home() {
           <span className="kicker">Get a quote</span>
           <h2>Send the addresses and the rent roll. We'll send back a number.</h2>
           <p>No pitch meeting required. Fifteen minutes on the phone, a walkthrough of the units, and a written quote with the punch list included.</p>
-          <div className="btn-row">
-            <a className="btn btn-ghost" href="#quote">Request a quote</a>
-            <a className="btn btn-ghost" href={SITE.phoneHref}>{SITE.phone}</a>
-          </div>
+          <QuoteForm />
         </div>
       </section>
     </>

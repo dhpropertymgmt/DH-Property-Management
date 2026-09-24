@@ -49,7 +49,7 @@
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     font-family:var(--sans);font-weight:600;font-size:.97rem;
-    padding:13px 22px;border-radius:999px;border:1px solid transparent;
+    padding:13px 22px;border-radius:999px;border:1px solid transparent;background:transparent;
     text-decoration:none;cursor:pointer;transition:background-color .18s ease,color .18s ease,border-color .18s ease;
   }
   .btn-primary{background:var(--amber);color:var(--ink)}
@@ -257,3 +257,48 @@
     @keyframes rise{to{opacity:1;transform:none}}
   }
 
+
+  /* ---- additions for the live site ---- */
+
+  /* mobile menu (the prototype hid nav links below 980px with no way to open them) */
+  .nav-toggle{margin-left:10px;background:none;border:1px solid rgba(246,244,239,.32);color:var(--paper);border-radius:999px;padding:8px 14px;font:600 .88rem var(--sans);cursor:pointer}
+  @media(max-width:979px){
+    .nav-links.open{display:flex;flex-direction:column;gap:4px;position:absolute;top:68px;left:0;right:0;background:var(--ink);padding:10px 22px 18px;border-bottom:1px solid var(--line-dark)}
+    .nav-links.open a{padding:10px 0}
+  }
+  @media(min-width:980px){.nav-toggle{display:none}}
+  @media(max-width:420px){.nav-cta{display:none}.nav-toggle{margin-left:auto}}
+
+  /* forms */
+  .form{display:grid;gap:14px;margin-top:28px;max-width:720px}
+  .form .row{display:grid;gap:14px}
+  @media(min-width:640px){.form .row{grid-template-columns:1fr 1fr}}
+  .field{display:grid;gap:6px;font-size:.92rem}
+  .field > span{font-weight:600;color:var(--ink)}
+  .field small{color:#6C7C8D;font-size:.82rem}
+  .field input,.field select,.field textarea{
+    font:inherit;font-size:1rem;color:var(--ink);background:#fff;
+    border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 13px;width:100%;
+  }
+  .field textarea{min-height:110px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:3px solid rgba(31,94,82,.35);border-color:var(--pine)}
+  .check{display:flex;gap:10px;align-items:flex-start;font-size:.93rem}
+  .check input{margin-top:4px;width:18px;height:18px;flex:none}
+  .form-msg{border-radius:var(--r-sm);padding:12px 14px;font-size:.93rem}
+  .form-msg.ok{background:var(--pine-soft);color:var(--pine)}
+  .form-msg.err{background:#F7E7E1;color:var(--clay)}
+  .close .form .field > span{color:var(--ink)}
+  .close .form .field small{color:#5A4514}
+  .close .field input,.close .field select,.close .field textarea{border-color:rgba(16,27,43,.25)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+  /* listings */
+  .list-grid{display:grid;gap:18px;margin-top:34px}
+  @media(min-width:820px){.list-grid{grid-template-columns:repeat(2,1fr)}}
+  .listing{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;gap:10px}
+  .listing .rent{font-family:var(--display);font-size:1.7rem;color:var(--ink);line-height:1}
+  .listing .rent small{font-family:var(--sans);font-size:.85rem;color:var(--body);font-weight:500}
+  .listing .facts{display:flex;flex-wrap:wrap;gap:8px;font-size:.85rem}
+  .listing .facts span{background:var(--paper-2);border-radius:999px;padding:4px 10px}
+  .listing .btn{align-self:flex-start;margin-top:6px}
+  .empty{background:#fff;border:1px dashed var(--line);border-radius:var(--r-md);padding:26px;margin-top:30px}
